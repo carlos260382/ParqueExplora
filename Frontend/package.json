@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "prueba técnica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos260382/Parque-Explora.git"
+  },
+  "author": "andres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlos260382/Parque-Explora/issues"
+  },
+  "homepage": "https://github.com/carlos260382/Parque-Explora#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "react-redux": "^7.2.8",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1"
+  }
+}

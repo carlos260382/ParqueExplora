@@ -1,26 +1,39 @@
 {
   "name": "frontend",
-  "version": "1.0.0",
-  "description": "prueba técnica",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/carlos260382/Parque-Explora.git"
-  },
-  "author": "andres",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/carlos260382/Parque-Explora/issues"
-  },
-  "homepage": "https://github.com/carlos260382/Parque-Explora#readme",
+  "proxy": "http://127.0.0.1:5000",
+  "version": "0.1.0",
+  "private": false,
   "dependencies": {
-    "axios": "^0.26.1",
-    "react-redux": "^7.2.8",
-    "react-router-dom": "^6.3.0",
-    "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.25.0",
+    "react": "^18.0.0",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-responsive-carousel": "^3.2.10",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^5.0.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

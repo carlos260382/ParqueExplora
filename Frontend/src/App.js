@@ -1,25 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './screens/Home.js';
 import Information from './screens/Information.js'
 import Navigation from './screens/Navigation.js'
 import Menu from './components/Menu.js';
 import Footer from './components/Footer.js'
-import Form from './components/Form.js'
+
 
 
 function App() {
  
   return (
-    <>
-    <Menu/>
-
-    <Form/>
-          
-    <Home/>
-    <Navigation/>
-    <Information/>
-    <Footer/>
-    </>
+    <BrowserRouter>
+    <Route path="/" component={Menu}></Route>
+    <Route path="/" component={Home} exact></Route>
+    <Route path="/navigation" component={Navigation} exact></Route>
+    <Route path="/information" component={Information} exact></Route>
+    <Route path="/" component={Footer}></Route>
+    </BrowserRouter>
     );
 }
 

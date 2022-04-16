@@ -62,7 +62,7 @@ const port = process.env.PORT || 5000;
 const httpServer = http.Server(app);
 
 httpServer.listen(port, () => {
-  console.log ('esta es la llave', process.env.KEY_NODEMAILER)
+ console.log ('esta es la llave', process.env.KEY_NODEMAILER)
   console.log(`Serve at http://localhost:${port}`);
 });
 

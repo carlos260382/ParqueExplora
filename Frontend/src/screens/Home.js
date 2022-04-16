@@ -1,11 +1,14 @@
 import React from 'react';
+import Experiences from '../components/Experiences.js';
+import Form from '../components/Form.js'
 
 
 export default function Home (){
 	
 return(
 <>
-	<h1>soy el home</h1>
+<Experiences/>
+<Form/>
 </>
 )
 };

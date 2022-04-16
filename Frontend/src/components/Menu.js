@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Menu() {
 
+
 return (
 <>
       <NavLink to="/">
@@ -14,6 +15,9 @@ return (
       </NavLink>
       <NavLink to="/information">
         <h3> Información General </h3>
+      </NavLink>
+      <NavLink to="/addexperience">
+        <h3> Agregar/Consultar/Modificar Experiencias Interactivas </h3>
       </NavLink>
 <h1>Este es el Menu</h1>
 

@@ -33,6 +33,7 @@ export const createExperience = expressAsyncHandler(async (req, res) => {
     );
     const images = data.hits.shift()
     const imageUrl = images.userImageURL
+    console.log ('esta es imagen' ,imageUrl)
   
 
     const experience = new Experience({

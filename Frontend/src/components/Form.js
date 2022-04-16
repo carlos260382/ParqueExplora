@@ -22,10 +22,8 @@ const [input, setInput] = useState({
 		  setInput((input) => ({
 			...input,
 			 [evento.target.name]: evento.target.value
-		   }));
-			
-	
-		 }
+		   }))
+		 };
 	  
 	
 		 const handleSubmit = async () => {
@@ -50,11 +48,7 @@ return (
     <div className={styles.container}>
       <form>
         <label name="name">Nombre</label>
-        <input
-          type="text"
-          name="name"
-          required
-          value={input.name}
+        <input type="text" name="name" required value={input.name}
           onChange={handleChange}
         />
 

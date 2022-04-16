@@ -1,22 +1,22 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
+// import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+// import thunk from 'redux-thunk';
 
-// import {
-//   turnGetReducer } from './reducers/turnReducers'
+// // import {
+// //   turnGetReducer } from './reducers/turnReducers'
 
-const initialState = {};
+// const initialState = {};
 
-const reducer = combineReducers({
-  // productList: productListReducer,
-  // turnGet: turnGetReducer
+// const reducer = combineReducers({
+//   // productList: productListReducer,
+//   // turnGet: turnGetReducer
 
-});
+// });
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  reducer,
-  initialState,
-  composeEnhancer(applyMiddleware(thunk))
-);
+// const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(
+//   reducer,
+//   initialState,
+//   composeEnhancer(applyMiddleware(thunk))
+// );
 
-export default store;
+// export default store;

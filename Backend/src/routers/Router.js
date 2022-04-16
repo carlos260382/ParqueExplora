@@ -4,7 +4,7 @@ import path from 'path';
 //import multer from 'multer';
 import Experience from "../models/interactiveExperience.js";
 import Image from '../models/imageUpload.js'
-import {upload, createExperience, updateExperience, deleteExperience, getExperience, getExperienceId } from '../utils.js'
+import {upload, createExperience, updateExperience, deleteExperience, getExperience, getExperienceId, createForm } from '../utils.js'
 
 const __dirname = path.resolve();
 
@@ -14,8 +14,6 @@ Router.get('/',
 expressAsyncHandler(async (req, res) => {
     res.sendFile(__dirname,'../views/index.html')
 }))
-
-//Router.post('/image', getApiImage);
 
 //Router.get("/", getExperience);
 
@@ -27,6 +25,7 @@ Router.delete('/:id', deleteExperience);
 
 Router.get("/:id", getExperienceId);
 
+Router.post("/form",createForm)
 
 Router.post('/upload',
 upload,
@@ -55,5 +54,7 @@ if(req.file){
   res.send({ message: 'imagen No Obtenida'})
   
 })
+
+
 
 export default Router

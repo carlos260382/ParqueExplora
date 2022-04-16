@@ -1,0 +1,14 @@
+.btnW{
+    background-color: #00000000;
+    color: #FFFFFF;
+    max-width: 8%;
+    max-height: 8%;
+    border: none;
+    
+}
+
+.btnW img{
+    max-width: 70%;
+    max-height: 90%;
+    border-radius: 5%;
+}

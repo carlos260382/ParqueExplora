@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
 import router from './routers/Router.js';
+//import routerForm from './routers/routerForm.js'
 import cors from 'cors'
 import engine from 'consolidate';
 
@@ -36,6 +37,8 @@ console.log('este es el error',error)
 
 app.use('/', router);
 app.use('/upload', router);
+//app.use('/form', routerForm);
+
 
 
 
@@ -59,7 +62,7 @@ const port = process.env.PORT || 5000;
 const httpServer = http.Server(app);
 
 httpServer.listen(port, () => {
-  console.log ('esta es la llave', process.env.API_KEY_IMAGE)
+  console.log ('esta es la llave', process.env.KEY_NODEMAILER)
   console.log(`Serve at http://localhost:${port}`);
 });
 

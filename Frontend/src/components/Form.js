@@ -1,70 +1,99 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
-import styles from "./Form.module.css";
+//import { NavLink } from "react-router-dom";
+import whatsApp from '../assent/whatsApp.png'
+import styles from "../style/Form.module.css";
+import Axios from 'axios';
 
 
 export default function Form (){
 const [input, setInput] = useState({ 
 		name: "",
+    cedula:"",
+    movil: "",
 		email: "",
-		subject: "",
-		message: "",	   
+		institution: "",
+		select: "",	   
 	  });
 	
 	 
 	  const handleChange = (evento) => {
+      evento.persist();
 		  setInput((input) => ({
 			...input,
 			 [evento.target.name]: evento.target.value
 		   }));
-			console.log('este es el input', input)
+			
 	
 		 }
 	  
 	
-		 const handleSubmit = async (e) => {
-			e.preventDefault();
-			console.log('este es el input del handle', input)
-			const res = await fetch('http://localhost:3001/user', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(input),
-			});
-	
-			const data = await res.json();
-			console.log(data);
-		};
+		 const handleSubmit = async () => {
+      console.log('este es el input enviado', input)
+       await Axios.post("http://localhost:5000/form", input, {
+         headers: {
+           "Access-Control-Allow-Origin": "*",
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify(input),
+       });
+       window.location.replace("");
+     };
 	 
-	
+
+    const goWhatsApp = ()=>{
+      window.location.replace("https://api.whatsapp.com/send?phone=+573127411293&text=hola");
+    } 
+      	
 return (
   <>
     <div className={styles.container}>
       <form>
-        <label for="name">Nombre</label>
-        <input type="text" name="name" required onChange={handleChange} />
-        
-        <label for="cedula">Cédula</label>
+        <label name="name">Nombre</label>
+        <input
+          type="text"
+          name="name"
+          required
+          value={input.name}
+          onChange={handleChange}
+        />
+
+        <label name="cedula">Cédula</label>
         <input type="tel" name="cedula" required onChange={handleChange} />
-        
-        <label for="movil">Telefono celular</label>
+
+        <label name="movil">Telefono celular</label>
         <input type="tel" name="movil" required onChange={handleChange} />
-        
-        <label for="email">Correo electrónico</label>
+
+        <label name="email">Correo electrónico</label>
         <input type="email" name="email" required onChange={handleChange} />
-        
-        <select name="select">
-          <option value="value1">Preescolar</option>
-          <option value="value2" selected>Primaria</option>
-          <option value="value3">Secundaria</option>
+
+        <label name="institution">
+          Nombre de institución <br />
+          educativa
+        </label>
+        <input type="text" name="institution" onChange={handleChange} />
+
+        <label name="name">
+          Estás interesado en una <br /> navegación por el universo para:
+        </label>
+        <select onChange={(evento) => handleChange(evento)} name="select">
+          {["Preescolar", "Primaria", "Secundaria"].map((el) => (
+            <option key={el} value={el}>
+              {el}
+            </option>
+          ))}
         </select>
       </form>
-      <button className={styles.btn} onClick={handleSubmit}>
+
+      <button className={styles.btn} 
+     onClick={handleSubmit}>
         Enviar
       </button>
-      <button className={styles.btn} onClick={handleSubmit}>
-        Escribenos por WhatsApp
-      </button>
+
+      <button onClick={goWhatsApp} className={styles.btnW} >
+      <img src={whatsApp} alt="my image" className={styles.imgW}/></button>
+      <label>Escríbenos por Whastapp</label>
+
     </div>
   </>
 );

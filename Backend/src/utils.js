@@ -4,6 +4,8 @@ import multer from "multer";
 import path from "path";
 import expressAsyncHandler from "express-async-handler";
 import Experience from "./models/interactiveExperience.js";
+import Form from "./models/form.js";
+import nodemailer from "nodemailer";
 dotenv.config();
 
 const API_KEY_IMAGE = process.env.API_KEY_IMAGE;
@@ -21,58 +23,6 @@ export const upload = multer({
   storage,
   dest: path.join(__dirname, "src/public/uploads"),
 }).single("image");
-
-
-
-// export const saveImage = async (req, res) => {
-//   upload();
-//   console.log(req.file);
-
-//   if (req.file) {
-//     const createImages = await Experience.save({
-//       fieldname: req.file.fieldname,
-//       originalname: req.file.originalname,
-//       encoding: req.file.encoding,
-//       mimetype: req.file.mimetype,
-//       destination: req.file.destination,
-//       filename: req.file.filename,
-//       path: req.file.path,
-//       size: req.file.size,
-//     });
-//     console.log("esta es la imagen", createImages);
-//     res.send({ message: "imagen Obtenida", image: createImages });
-//   }
-
-//   res.send({ message: "imagen No Obtenida" });
-// };
-
-
-
-
-// export const getApiImage = expressAsyncHandler(async (req, res) => {
-//   const { title } = req.body;
-//   console.log('este es el titulo', title)
-//   const { data } = await axios.get(
-//     `https://pixabay.com/api/?key=${API_KEY_IMAGE}&q=${title}&image_type=photo`
-//   );
-//   const images = data.hits.shift()
-//   const imageUrl = images. userImageURL
-  
-//   if(!imageUrl){
-//     res.send({ message: "Image Not Found"})
-//   }else{
-//     const createImage = await Experience.save({
-//          relatedImage: images,
-//        });
-//       res.send({ message: "imagen Obtenida", images: createImage })
-
-//   }
-
-
-//   console.log ('esta es la imagen', imageUrl)
-//   // ;
-// });
-
 
 export const createExperience = expressAsyncHandler(async (req, res) => {
   console.log("esta es la info del body", req.body);
@@ -98,7 +48,7 @@ export const createExperience = expressAsyncHandler(async (req, res) => {
     res.status(500).send({ message: error.message });
     console.log("este es el error", error);
   }
-  //getApiImage(req, res)
+  
 
 });
 
@@ -146,3 +96,46 @@ export const getExperienceId = expressAsyncHandler(async (req, res) => {
     res.status(404).send({ message: "experience Not Found" });
   }
 })
+
+export const createForm = async (req, res) => {
+  console.log("este es e bodyform", req.body);
+try {
+          const form = new Form({
+          name: req.body.name,
+          cedula: req.body.cedula,
+          movil: req.body.movil,
+          email: req.body.email,
+          institution: req.body.institution,
+          select: req.body.select,
+        });
+        const createdForm = await form.save();
+        res.send({ message: "form created successfully", form: createdForm });
+        const transporter = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 465,
+          secure: true,
+          auth: {
+              user: 'ep3977752@gmail.com',
+              pass: process.env.KEY_NODEMAILER,
+          },
+      });
+console.log('este es el formulario', form )
+      const mailOptions = {
+          from: 'Remitente',
+          to: form.email,
+          subject: 'Felicitaciones te has registrado con exito',
+          text: `¡Gracias ${form.name} por registrarte en nustra web!`,
+      };
+
+      await transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+              console.log(err);
+          } else {
+              console.log('Email enviado');
+          }
+      });
+
+} catch (error) {
+    console.log('error post form', error)
+}
+}

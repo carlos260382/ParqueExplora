@@ -6,6 +6,7 @@ import Navigation from './screens/Navigation.js'
 import Menu from './components/Menu.js';
 import Footer from './components/Footer.js';
 import updateExperienceApi from './screens/updateExperienceApi.js';
+import updateExperience from './components/updateExperience/updateExperience.js'
 
 
 
@@ -19,6 +20,7 @@ function App() {
     <Route path="/navigation" component={Navigation} exact></Route>
     <Route path="/information" component={Information} exact></Route>
     <Route path="/addexperience" component={updateExperienceApi} exact></Route>
+    <Route path="/experience/:id" component={updateExperience} exact></Route>
     <Route path="/" component={Footer}></Route>
     </BrowserRouter>
     );

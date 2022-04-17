@@ -1,12 +1,14 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { NavLink } from "react-router-dom";
-
+import styles from '../style/menu.module.css'
+import lupa from '../assent/lupa.png'
 
 export default function Menu() {
 
 
 return (
-<>
+<div className={styles.container}>
       <NavLink to="/">
         <h3> Inicio </h3>
       </NavLink>
@@ -17,11 +19,11 @@ return (
         <h3> Información General </h3>
       </NavLink>
       <NavLink to="/addexperience">
-        <h3> Agregar/Consultar/Modificar Experiencias Interactivas </h3>
+        <h3> Registrar Experiencias Interactivas </h3>
       </NavLink>
-<h1>Este es el Menu</h1>
+      <img src= {lupa} />
 
-</>
+</div>
 )
 
 }

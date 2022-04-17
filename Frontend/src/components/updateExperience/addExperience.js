@@ -33,7 +33,7 @@ export default function AddExperience (){
 
 return (
   <>
-    <h1>Agregar Experiencias Interactivas</h1>
+    <h1>Registra Nuevas Experiencias</h1>
 
     <form>
       <label name="title">Titulo</label>

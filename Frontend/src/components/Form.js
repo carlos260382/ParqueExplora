@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 //import { NavLink } from "react-router-dom";
 import whatsApp from '../assent/whatsApp.png'
-import styles from "../style/Form.module.css";
+import styles from "../style/form.module.css";
 import Axios from 'axios';
 
 

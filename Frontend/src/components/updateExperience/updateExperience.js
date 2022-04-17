@@ -1,12 +1,14 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useState} from 'react';
 import Axios from 'axios';
 import styles from '../../style/addExperience.module.css'
 
 
-export default function AddExperience (){
+export default function updateExperience (props){
+  const id = props.match.params.id 
+  console.log('este es el', id)
     const [input, setInput] = useState({ 
-		title: "",
-        description:"",
+		    description:"",
         interactiveRoom: "",
 	  });
 	
@@ -20,44 +22,38 @@ export default function AddExperience (){
 		 };
 
          const handleSubmit = async () => {
-            console.log('este es el input enviado', input)
-             await Axios.post("http://localhost:5000/", input, {
-               headers: {
-                 "Access-Control-Allow-Origin": "*",
-                 "Content-Type": "application/json",
-               },
-               body: JSON.stringify(input),
-             });
-             window.location.replace("");
-           };
-
+            try {
+              await Axios.put(`http://localhost:5000/${id}`,input, {
+                headers: {
+                  "Access-Control-Allow-Origin": "*",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(input),
+              });
+              window.location.replace("");
+                          
+            } catch (error) {
+              console.log(error) 
+            }
+          };
+          console.log('este es el input enviado', input)
 return (
   <>
-    <h1>Agregar Experiencias Interactivas</h1>
+    <h1>Modifica y/o Actualiza</h1>
 
     <form>
-      <label name="title">Titulo</label>
-      <input
-        type="text"
-        name="title"
-        required
-        value={input.name}
-        onChange={handleChange}
-      />
-
-      <label name="description">Descriptción</label>
-      <input type="text" name="description" required onChange={handleChange} />
+      <label name="description">Descripción</label>
+      <input type="text" name="description" onChange={handleChange} />
 
       <label name="interactiveRoom">Salón Interactivo</label>
       <input
         type="text"
         name="interactiveRoom"
-        required
         onChange={handleChange}
       />
     </form>
     <button className={styles.btn} onClick={handleSubmit}>
-      Agregar
+      Modificar
     </button>
   </>
 );

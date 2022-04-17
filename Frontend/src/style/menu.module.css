@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../src/assent/fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'pluto';
+    src: url('../../src/assent/fonts/PlutoRegular.otf');
+}
+
+
+.container{
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4%;
+    width: 110%;
+    height: 110%;
+    margin: 0 auto;
+    padding: 0;
+    gap: 5%;
+}
+
+.container h3{
+    color: black;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+}
+
+.container h3:hover{
+    color: #00A8FF;
+    font-size: 0.9em;
+}
+
+.container h3:active{
+    color: #ff00aa;
+}
+
+.container img{
+max-width: 3%;
+max-height: 3%;
+
+}

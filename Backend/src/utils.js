@@ -6,6 +6,7 @@ import expressAsyncHandler from "express-async-handler";
 import Experience from "./models/interactiveExperience.js";
 import Form from "./models/form.js";
 import nodemailer from "nodemailer";
+import notifier from 'node-notifier';
 dotenv.config();
 
 const API_KEY_IMAGE = process.env.API_KEY_IMAGE;
@@ -31,20 +32,23 @@ export const createExperience = expressAsyncHandler(async (req, res) => {
     const { data } = await axios.get(
       `https://pixabay.com/api/?key=${API_KEY_IMAGE}&q=${title}&image_type=photo`
     );
-    const images = data.hits.shift()
+    
+    if(data.hits.length === 0){
+      notifier.notify( { title: 'No se encontro la Imagen',
+      message: 'Por favor escribe con otro titulo, recuerda que debe estar en ingles'} );
+   }else{ 
+    const images = data.hits.find(e => e.userImageURL !== '')
     const imageUrl = images.userImageURL
-    console.log ('esta es imagen' ,imageUrl)
-  
-
-    const experience = new Experience({
+   
+   const experience = new Experience({
       title: title,
       description: description,
       interactiveRoom: interactiveRoom,
       relatedImage:imageUrl
     });
     const createdExperience = await experience.save();
-
     res.send({ message: "Experiencia creada", experience: createdExperience });
+  }
   } catch (error) {
     res.status(500).send({ message: error.message });
     console.log("este es el error", error);
@@ -65,21 +69,23 @@ export const getExperience = expressAsyncHandler(async (req, res) => {
 
 export const updateExperience = expressAsyncHandler(async (req, res) => {
   const id = req.params.id;
+  console.log('body q llega', req.body)
   const experience = await Experience.findById(id);
   if (experience) {
-    experience.title = req.body.title;
+    
     experience.description = req.body.description;
     experience.interactiveRoom = req.body.interactiveRoom;
-    experience.relatedImage = req.body.relatedImage;
-    
-    const updatedExperience = await experience.save();
-    res.send({ message: 'Experience Updated', experience: updatedExperience });
+        
+    const updatedExperiences = await experience.save();
+    console.log('nueva experience', updateExperiences)
+    res.send({ message: 'Experience Updated', experience: updatedExperiences });
   } else {
     res.status(404).send({ message: 'Experience Not Found' });
   }
 })
 
 export const deleteExperience = expressAsyncHandler(async (req, res) => {
+  console.log('este es el id', req.params.id)
   const experience = await Experience.findById(req.params.id);
   if (experience) {
     const deleteExperience = await experience.remove();

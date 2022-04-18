@@ -73,24 +73,3 @@ margin: 1%;
 }
 
 
-.uploadFile{
-    background-color: #092431;
-    width: 100%;
-    height: 100%;
-    color: white;
-    border: none;
-    padding: 10px;
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: 1.5em;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-.uploadFile label{
-margin-right: 10%;
-
-}

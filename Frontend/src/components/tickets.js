@@ -2,8 +2,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-//import { NavLink } from "react-router-dom";
-//import styles from "../style/Form.module.css";
+import styles from "../style/tickets.module.css";
 
 
 
@@ -32,18 +31,19 @@ useEffect(() => {
         console.log(error)
     }};   
     console.log('este es el recurso', tickets)
+
 return (
-  <>
+  <div className= {styles.container}>
 
 {tickets? tickets.map((c) =>  {
             return (
-              <div key={c.title}>
+              <div key={c.title} className= {styles.card}>
                     <h1>{ c.title}</h1><br/>
                     <p>{c.excerpt}</p><br/>
                     {<img src={c.img}/> }<br/>              
               </div>
             );
           }):''}
-  </>
+  </div>
 );
 };

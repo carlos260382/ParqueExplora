@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
 //import { NavLink } from "react-router-dom";
 import whatsApp from '../assent/whatsApp.png'
 import styles from "../style/form.module.css";
 import Axios from 'axios';
+import planeta1 from '../assent/FORMULARIO-PLANETA-1.png'
+import planeta2 from '../assent/FORMULARIO-PLANETA-2.png'
 
 
 export default function Form (){
@@ -46,6 +49,10 @@ const [input, setInput] = useState({
 return (
   <>
     <div className={styles.container}>
+    <img src={planeta1}/>
+    <h1>¿Quieres más información?</h1>
+    <img src={planeta2}/>
+    <h2>Déjanos tus datos y te contactaremos</h2>
       <form>
         <label name="name">Nombre</label>
         <input type="text" name="name" required value={input.name}
@@ -87,7 +94,8 @@ return (
       <button onClick={goWhatsApp} className={styles.btnW} >
       <img src={whatsApp} alt="my image" className={styles.imgW}/></button>
       <label>Escríbenos por Whastapp</label>
-
+<p>Al diligenciar este formulario aceptas seguir recibiendo información del Parque Explora y nos autorizas para que incluyamos tus datos<br/>personales en nuestras bases de datos, en calidad de responsable y encargado de los mismos, con la finalidad de enviarte información<br/>sobre eventos y actividades. También te das por enterado de los derechos que tienes de consultarlos, actualizarlos, rectificarlos y<br/>suprimirlos en cualquier momento, y conoces la política de manejo de datos de la Corporación, que se encuentran en la página web<br/>
+www.parqueexplora.org/condiciones-legales. En ella se encuentran descritos los canales de atención para el ejercicio de tus derechos y la<br/>presentación de quejas y reclamos. Así mismo comprendes que esta autorización es requerida de acuerdo a lo dispuesto por la ley 1581<br/>de 2012 y sus decretos reglamentarios. Esta autorización la otorgas gratuitamente sin ninguna limitación de carácter temporal o territorial.</p>
     </div>
   </>
 );

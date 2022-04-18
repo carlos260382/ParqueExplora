@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../src/assent/fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'pluto';
+    src: url('../../src/assent/fonts/PlutoRegular.otf');
+}
+.container{
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4%;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    gap: 5%;
+    font-family: 'OPen Sans';
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'OPen Sans';
+}
+
+.div1{
+display: flex;
+flex-direction: column;
+max-width: 35%;
+}
+
+.div2{
+display: flex;
+flex-direction: column;
+max-width: 35%;
+
+}
+
+.div3{
+display: flex;
+flex-direction: column;
+max-width: 30%;
+
+}
+
+.logo{
+    width: 30%;
+    height: 30%;
+    margin: 0;
+    padding: 0;
+    margin-right: 5%;
+}
+
+.planetario{
+    width: 30%;
+    height: 30%;
+    margin: 0;
+    padding: 0;
+    margin-right: 5%;
+}
+
+.container img{
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.container button{
+    border: none;
+    max-width: 22%;
+    max-height: 22%;
+}
+
+.div4{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.container h3{
+    color: black;
+    max-width: 100%;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+}
+
+.btn{
+    max-width: 60%;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+}

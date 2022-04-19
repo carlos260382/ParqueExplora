@@ -25,7 +25,7 @@ MONGODB_URL=mongodb://localhost/parqueExplora
 API_KEY_IMAGE=13116435-639def09e98ce0f9f1aa0877b
 KEY_NODEMAILER=ekcocqalmsequlhp
 
-Dependencias adicionales:
+Herramientas utilizadas:
 
 Para el servicio de envío de correo electrónico se uso la librería “Nodemailer”; que permite enviar el correo electrónico al usuario desde el lado del servidor en este caso desde Node.js; si desean conocer mas puede ingresar a la documentación https://nodemailer.com/about/
 

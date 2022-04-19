@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../src/assent/fonts/OpenSans-Regular.ttf');
+}
+
+.container1{
+    background-image:url('../assent/INTRO-FONDO.jpg'); 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: 'Open Sans';
+}
+
+.container1 label{
+    padding-top: 0%;
+    margin-top: 0%;
+    font-size: 4em;
+    font-weight: bold; 
+    max-width: 50%;
+}
+
+.container1 p{
+    font-size: 0.9em;
+    max-width: 50%;
+}
+
+.container1 h3{
+    font-size: 1.1em;
+    font-weight: bold;
+    max-width: 50%;
+}
+
+
+.container2{
+    background-image:url('../assent/OBJETIVO-FONDO.png'); 
+    max-width: 110%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(119, 14, 140);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: 'Open Sans';
+    gap: 10%;
+}
+
+.container2 h1{
+    font-size: 3em;
+    font-weight: bolder;
+    max-width: 50%;
+    
+}
+.div1{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+   
+}
+.div2{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+
+}
+.div3{
+    display: flex;
+    flex-direction: row;
+}
+
+.container2 p{
+    font-size: 0.9em;
+    font-weight: bolder;
+}
+
+.container3{
+    background-color: rgb(143, 37, 164);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    max-width: 110%;
+}
+
+.container3 h1{
+    font-size: 3em;
+    font-weight: bolder;
+    max-width: 50%;
+}
+
+.container3 ul 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    max-width: 60%;
+font-size: large;
+font-weight: bold;
+}

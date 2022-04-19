@@ -72,4 +72,5 @@ margin: 1%;
     color: white;
 }
 
-
+.ticke img:hover {-webkit-transform:scale(1.3);transform:scale(1.3);}
+.ticke {overflow:hidden;}

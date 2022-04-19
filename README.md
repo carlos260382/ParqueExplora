@@ -1,4 +1,3 @@
-# ParqueExplora
 Prueba Técnica Backend/Frontend 
 # Solución de Prueba Técnica:
 ## Landing desarrollada en el frontend con React JS, en el backend con Node.JS, Express y MongoDB.

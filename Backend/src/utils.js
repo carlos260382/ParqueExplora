@@ -1,6 +1,6 @@
 import axios from "axios";
 import dotenv from "dotenv";
-//import multer from "multer";
+import multer from "multer";
 import path from "path";
 import expressAsyncHandler from "express-async-handler";
 import Experience from "./models/interactiveExperience.js";
@@ -13,17 +13,17 @@ const API_KEY_IMAGE = process.env.API_KEY_IMAGE;
 
 const __dirname = path.resolve();
 
-// const storage = multer.diskStorage({
-//   destination: path.join(__dirname, "src/public/uploads"),
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
+const storage = multer.diskStorage({
+  destination: path.join(__dirname, "src/public/uploads"),
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
 
-// export const upload = multer({
-//   storage,
-//   dest: path.join(__dirname, "src/public/uploads"),
-// }).single("image");
+export const upload = multer({
+  storage,
+  dest: path.join(__dirname, "src/public/uploads"),
+}).single("image");
 
 export const createExperience = expressAsyncHandler(async (req, res) => {
   console.log("esta es la info del body", req.body);

@@ -5,16 +5,11 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
 import router from './routers/Router.js';
-//import routerForm from './routers/routerForm.js'
 import cors from 'cors'
 import engine from 'consolidate';
 
 dotenv.config();
 const __dirname = path.resolve();
-
-//import uuid from 'uuid/v4';
-
-
 
 const app = express();
 app.use(morgan("dev"));
@@ -23,13 +18,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/parqueExplora', {
   useNewUrlParser: true,
   useUnifiedTopology: false,
  
 }).then(()=>{
-
 console.log('esta conectado base datos')
 }).catch((error)=>{
 console.log('este es el error',error)
@@ -37,10 +30,6 @@ console.log('este es el error',error)
 
 app.use('/', router);
 app.use('/upload', router);
-//app.use('/form', routerForm);
-
-
-
 
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use(express.static(path.join(__dirname, "/src/views")));
@@ -62,8 +51,7 @@ const port = process.env.PORT || 5000;
 const httpServer = http.Server(app);
 
 httpServer.listen(port, () => {
- console.log ('esta es la llave', process.env.KEY_NODEMAILER)
-  console.log(`Serve at http://localhost:${port}`);
+   console.log(`Serve at http://localhost:${port}`);
 });
 
 
